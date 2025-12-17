@@ -34,15 +34,71 @@ The maximum possible groupings of adjacent ones are already shown in the figure.
 
 **Procedure**
 
-/* write all the steps invloved */
+1.Connect the circuit on the breadboard/kit using the JK flip-flop IC (e.g., 7476/7473/4027).
+
+2.Give the power supply of +5V and ground to the IC.
+
+3.Connect the clock input to the clock generator or pulse switch.
+
+4.Connect inputs J and K to switches so they can be set to 0 or 1.
+
+5.Connect Q and Q̄ outputs to LEDs or indicators to observe the output state.
+
+6.Set J = 0 and K = 0, then apply a clock pulse and note the output Q (should remain unchanged).
+
+7.Set J = 0 and K = 1, apply a clock pulse and observe the output (Q should reset to 0).
+
+8.Set J = 1 and K = 0, apply a clock pulse and observe the output (Q should set to 1).
+
+9.Set J = 1 and K = 1, apply a clock pulse and observe the output toggle (Q becomes complement of previous state).
+
+10.Repeat the above steps to verify the JK flip-flop behavior for multiple clock pulses.
+
+11.Record all observations in a truth table format.
+
 
 **PROGRAM**
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
-*/
+```
+ module JK_FF(
+    input clk,
+    input j,
+    input k,
+    output reg q,
+    output reg qbar
+);
+always @(posedge clk) begin
+if (j == 0 && k == 0) begin
+    q <= q;
+    qbar <= qbar;
+end 
+else if (j == 0 && k == 1) begin
+    q <= 0;
+    qbar <= 1;
+end 
+else if (j == 1 && k == 0) begin
+    q <= 1;
+    qbar <= 0;
+end 
+else if (j == 1 && k == 1) begin
+    q <= ~q;
+    qbar <= ~qbar;
+    end
+end
+endmodule
+```
+
+Developed by:DHAMODHARAN RegisterNumber: 25009463
+
 
 **RTL LOGIC FOR FLIPFLOPS**
+<img width="1722" height="869" alt="image" src="https://github.com/user-attachments/assets/3d56b38f-85c1-4651-a4c4-5a8585af797c" />
+
+
 
 **TIMING DIGRAMS FOR FLIP FLOPS**
+<img width="1714" height="907" alt="image" src="https://github.com/user-attachments/assets/58ca99aa-200e-4bcb-9d69-80de93e08ccc" />
+
+
 
 **RESULTS**
