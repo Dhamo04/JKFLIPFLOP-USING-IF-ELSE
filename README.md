@@ -102,3 +102,5 @@ Developed by:DHAMODHARAN RegisterNumber: 25009463
 
 
 **RESULTS**
+
+Implementation of JK flipflop using Verilog and validating their functionality using their functional tables is created successfully.
