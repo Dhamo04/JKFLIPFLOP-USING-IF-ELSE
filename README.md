@@ -60,32 +60,12 @@ The maximum possible groupings of adjacent ones are already shown in the figure.
 **PROGRAM**
 
 ```
- module JK_FF(
-    input clk,
-    input j,
-    input k,
-    output reg q,
-    output reg qbar
-);
-always @(posedge clk) begin
-if (j == 0 && k == 0) begin
-    q <= q;
-    qbar <= qbar;
-end 
-else if (j == 0 && k == 1) begin
-    q <= 0;
-    qbar <= 1;
-end 
-else if (j == 1 && k == 0) begin
-    q <= 1;
-    qbar <= 0;
-end 
-else if (j == 1 && k == 1) begin
-    q <= ~q;
-    qbar <= ~qbar;
-    end
-end
-endmodule
+ module ex7(J,K,Qt,Y);
+input J,K,Qt;
+output Y;
+assign Y = J & ~Qt | ~K & Qt;
+endmodule 
+
 ```
 
 Developed by:DHAMODHARAN RegisterNumber: 25009463
